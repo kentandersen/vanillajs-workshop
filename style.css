@@ -1,0 +1,88 @@
+.remark-slide-number {
+  display: none;
+}
+
+.remark-slide .remark-slide-content.cols.three .col-span-two {
+  width: 66%;
+}
+
+.cols h1 + .col,
+.cols h1 + .col + .col,
+.cols h1 + .col + .col + .col {
+  margin-top: -1em;
+}
+
+
+.event-propagation-example ul {
+  margin: 0;
+  padding: 0 !important;
+}
+.event-propagation-example li {
+  font-size: 1.5em;
+  list-style-type: none;
+  margin-bottom: 1rem !important;
+  margin-left: 0 !important;
+  padding: 0.5em;
+}
+
+.event-propagation-example li.highlight {
+  color: #1A1A1A;
+  background-color: #FFF9AE;
+}
+
+
+.browser {
+  position: relative;
+  box-sizing: border-box;
+  height: 550px;
+  width: 900px;
+  background-image: url('resources/browser-frame-left.png'), url('resources/browser-frame-right.png');
+  background-position: top left, top right;
+  background-repeat: no-repeat;
+  background-size: auto 50px;
+  margin: 20px auto;
+  border-radius: 5px;
+  padding-top: 50px;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 1);
+}
+
+.browser iframe,
+.browser .content {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.browser .content {
+  overflow: auto;
+}
+
+
+.browser .title {
+  position: absolute;
+  left: 61px;
+  top: 11px;
+  width: 110px;
+  font-family: "HelveticaNeue-Light";
+  font-weight: 300;
+  color: #000;
+  font-size: 9px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.browser .title .favicon {
+  height: 12px;
+  vertical-align: middle;
+}
+
+.browser .url {
+  position: absolute;
+  font-family: "HelveticaNeue-Light";
+  font-weight: 300;
+  left: 70px;
+  top: 30px;
+  color: #000;
+  font-size: 10px;
+}
