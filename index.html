@@ -19,13 +19,12 @@ class: agenda
 
 # Plan for dagen
 
-* 09.00 Show and tell med Øyvind x2
-* 09.30 JavaScript
-* 10.00 Funksjonell programering
-* 10.30 DOM-api
-* 11.00 Prototypes
-* 11.30 Promises
-* 12.00 Lunch
+* Show and tell med Øyvind x2
+* JavaScript
+* DOM-api
+* Prototypes
+* Promises
+* Lunsj
 
 ---
 class: middle center
@@ -267,13 +266,66 @@ class: middle center
   Åpenbar verdi med let & const: kommuniserer til andre som leser koden hva som er meningen med en variabel
 
 ---
-# Oppgave
+# Oppgaver
 
 Få testene til å kjøre
 
-http://tddbin.com/#?kata=es6/language/block-scoping/let
+* http://jsbin.com/vivipur/4/edit?js,console
+* http://tddbin.com/#?kata=es6/language/block-scoping/let
+* http://tddbin.com/#?kata=es6/language/block-scoping/const
 
-http://tddbin.com/#?kata=es6/language/block-scoping/const
+---
+# Strings
+
+```javascript
+  var name = "Kent";
+  var text1 = 'Hei, ' + name + ', hvordan går det?';
+  var text2 = `Hei, ${name}, hvordan går det?`;
+```
+--
+
+Ikke 'enkeltfnutt'
+
+--
+
+Ikke "dobbeltfnutt"
+
+--
+
+Men \` backtick ` &nbsp;(shift + knappen før backspace)
+
+---
+
+
+# Template Strings
+```javascript
+  var str = `Her
+             var
+
+             det masse
+             fine
+
+             linjer!!
+  `
+
+```
+--
+```text
+  Her
+             var
+
+             det masse
+             fine
+
+             linjer!!
+```
+---
+# Oppgaver
+
+Få testene til å kjøre
+
+* http://tddbin.com/#?kata=es6/language/template-strings/basics
+* http://tddbin.com/#?kata=es6/language/template-strings/multiline
 
 ---
 
@@ -379,6 +431,50 @@ Legg merke til at det ikke blir ref error
   });
 
 ```
+---
+# Functions
+
+```
+  function myFunction() {
+    // do something
+  }
+```
+
+---
+# Functions
+
+```
+  function myFunction() {
+    arguments // ['argument1', 'argument2', 'argument3', 'argument4', 'argument5']
+  }
+
+  myFunction('argument1', 'argument2', 'argument3', 'argument4', 'argument5');
+```
+---
+# Functions in functions
+
+```
+  function times(timesNum) {
+    return function(num) {
+      num * timesNum;
+    }
+  }
+```
+--
+
+```
+  var timesTwo = times(2);
+
+  timesTwo(1); // 2
+
+  timesTwo(24); // 48
+
+  timesTwo(64); // 128
+
+```
+
+
+
 
 ---
 
@@ -508,13 +604,14 @@ Legg merke til at det ikke blir ref error
   }
 
 ```
-
 ---
-# Oppgave
+
+# Oppgaver
 
 Få testene til å kjøre
 
-http://tddbin.com/#?kata=es6/language/arrow-functions/basics
+* http://jsbin.com/nahugen/4/edit?js,consol
+* http://tddbin.com/#?kata=es6/language/arrow-functions/basics
 
 ---
 
@@ -773,6 +870,110 @@ Uncaught TypeError: document.querySelectorAll(...).forEach is not a function(…
   <iframe src="https://jsperf.com/forrreach/7" />
 </div>
 ---
+#Oppgaver
+
+Få testene til å kjøre
+
+* http://jsbin.com/povoyoz/20/edit?js,console
+* http://jsbin.com/wepoceh/15/edit?js,console
+
+---
+# DOM
+
+```html
+  <div id="parent">
+    <div id="child">
+      <a href="#"></a>
+      <a href="#"></a>
+      <a href="#"></a>
+    </div>
+  </div>
+```
+
+```
+  var el = document.getElementById('child');
+  el.parentNode; // <div id="parent"></div>
+  el.childNodes; // [<a href="#"></a>, ...]
+```
+
+---
+# DOM
+
+```html
+  <div>
+    <a href="mer.html">Klikk her</a> for å lære mer
+  </div>
+```
+
+```javascript
+  el.outerHTML; // <div><a href="mer.html">Klikk her</a> for å lære mer</div>
+```
+--
+
+```javascript
+  el.innerHTML; // <a href="mer.html">Klikk her</a> for å lære mer
+```
+--
+
+```javascript
+  el.textContent; // Klikk her for å lære mer
+```
+
+
+
+---
+# DOM
+
+## HTML attributter
+
+```html
+  <a href="https://abakus.no"></a>
+```
+```
+  el.getAttribute('href'); // https://abakus.no
+  el.setAttribute('href', 'https://bekk.no');
+```
+
+
+---
+# DOM
+
+
+## Endre css
+```
+  el.style.display = 'none';
+  el.style.color = 'blue';
+  el.style.fontSize = '12px';
+```
+
+## Hente data attributter
+```html
+  <div data-test="rick"></div>
+```
+
+```
+  el.dataset.test // 'rick'
+```
+
+
+
+---
+<div class="browser">
+  <div class="title">You might not need jquery</div>
+  <div class="url">http://youmightnotneedjquery.com/</div>
+  <iframe src="http://youmightnotneedjquery.com/" />
+</div>
+
+---
+#Oppgaver
+
+Få testene til å kjøre
+
+* http://jsbin.com/wajolug/13/edit?html,js,console
+
+
+
+---
 #Event
 
 ```javascript
@@ -782,14 +983,6 @@ Uncaught TypeError: document.querySelectorAll(...).forEach is not a function(…
     // gjør noe spennende
   });
 ```
----
-#Oppgave
-
-Få testene til å kjøre
-
-http://jsbin.com/povoyoz/20/edit?js,console
-
-http://jsbin.com/wepoceh/14/edit?js,console
 
 ---
 # Event
@@ -876,8 +1069,347 @@ class: cols three
     </div>
   </div>
 
+---
+class: middle center
+
+# Arv
+
+---
+
+# Arv
+
+## Liten recap:
+
+* Alt er objekter i javascript
+* Typer: function, number, boolean, string
+--
+
+* Har egenskaper som de **arver fra prototypen sin**
+
+---
+
+# Arv
+
+## Arver egenskaper fra prototypen sin:
+
+```
+  var navn = "Kent";
+  navn.charAt(0); // "K"
+
+  // charAt() arves fra String.prototype
+```
+---
+
+# Arv
+
+## Vi kan dermed utvide en prototype:
+
+For eksempel **String**
+
+```
+  String.prototype.log = function () {
+    console.log("Logged string: " + String(this));
+  };
+
+  var navn = "Kent Andersen"
+  navn.log(); // "Logged string: Kent Andersen"
+```
+--
+
+eller **Array**
+
+```
+  if (!Array.prototype.filter) {
+    Array.prototype.filter = function(filterFunction) {
+
+    }
+  }
+```
+
+???
+slik fungerer de fleste polyfill
+
+---
+
+# Arv
+
+## Men ofte lager vi våre egne objekter
+
+Disse arver fra sin prototype
+
+...Og de arver fra Object.prototype
+
+---
+
+# Arv
+
+## Constructor Invocation
+
+Som vi vet:
+```
+  var Person = function(navn) {
+    this.navn = navn;
+  };
+```
+--
+```
+  var erik = new Person("erik");
+  erik.navn // "erik"
+```
+
+---
+# Prototype Chain
+
+```
+  var Person = function (navn, stilling, firma) {
+    this.navn = navn;
+    this.stilling = stilling;
+    this.firma = firma;
+    this.hils = function() {
+      console.log("Hei, jeg heter " + this.navn);
+    };
+  };
+```
+--
+```
+  var pat = new Person('Pat', 'postmann', 'Posten');
+  var nilsArne = new Person('Nils Arne', 'trener', 'Rosenborg');
+```
+--
+```
+  pat.hils(); // "Hei, jeg heter Pat"
+```
+
+---
+# Prototype Chain
+
+```
+  var Person = function (navn, stilling, firma) {
+    this.navn = navn;
+    this.stilling = stilling;
+    this.firma = firma;
+  };
+```
+
+```
+  var pat = new Person('Pat', 'postmann', 'Posten');
+  var nilsArne = new Person('Nils Arne', 'trener', 'Rosenborg');
+```
+
+```
+  pat.hils(); // undefined is not a function
+```
+
+---
+
+# Prototype Chain
+
+```
+  var Person = function (navn, stilling, firma) {
+    this.navn = navn;
+    this.stilling = stilling;
+    this.firma = firma;
+  };
+```
+
+```
+  var pat = new Person('Pat', 'postmann', 'Posten');
+  var nilsArne = new Person('Nils Arne', 'trener', 'Rosenborg');
+```
+
+```
+  Person.prototype.hils = function() {
+    console.log("Hei, jeg heter " + this.navn);
+  };
+```
+
+```
+  pat.hils(); // "Hei, jeg heter Pat"
+```
+--
+```
+  nilsArne.hils(); // "Hei, jeg heter Nils Arne"
+```
+---
 
 
+
+# Prototype Chain
+
+```
+  var Person = function (navn, stilling, firma) {
+    this.navn = navn;
+    this.stilling = stilling;
+    this.firma = firma;
+  };
+```
+
+```
+  var pat = new Person('Pat', 'postmann', 'Posten');
+  var nilsArne = new Person('Nils Arne', 'trener', 'Rosenborg');
+```
+
+```
+  Person.prototype.hils = function() {
+    console.log("Hei, jeg heter " + this.navn);
+  };
+```
+--
+```
+  pat.katt = 'Missy';
+```
+--
+```
+  pat.katt; // "Missy"
+  nilsArne.katt // undefined
+```
+
+---
+
+#Oppgaver
+
+Få testene til å kjøre
+
+* http://jsbin.com/kuzavu/5/edit?js,console
+
+---
+
+class: middle center
+
+# Class
+
+
+---
+
+# Class
+
+
+
+```
+  class User {
+    constructor(id) {
+
+    }
+
+    someFunction() {
+      // function body
+    }
+  }
+```
+???
+Ikke ordentlig klasser, bare syntax-sukker oppå prototype
+
+--
+
+
+```
+  var User = function(id) {}
+
+  User.prototype.someFunction() {
+      // function body
+  };
+```
+
+???
+  Dette er akkurat det samme
+
+--
+
+```
+  var user = new User(12);
+```
+
+???
+  fortsatt samme syntax for å instansiere
+
+---
+
+# Class
+
+```
+  var myFunctionName = 'nameOfFunction'
+
+  class User {
+    constructor(id) {}
+
+    someFunction() {
+      // function body
+    }
+
+    [myFunctionName]() {
+      // function body
+    }
+  }
+```
+
+???
+  dynamiske funnskjonsnavn
+
+---
+
+# Class
+
+```
+  class User {
+    constructor(id) {}
+
+    get age() {
+      return this.age;
+    }
+
+    set age(age) {
+      this.age = age;
+    }
+  }
+```
+
+???
+  getter og setter metode for properties
+
+
+---
+
+# Class
+
+```
+  class User {}
+  class SuperUser extends User {}
+```
+
+
+--
+
+```
+  class User {
+    constructor() {}
+
+    someFunction() {}
+  }
+
+  class SuperUser extends User {
+    constructor() {
+      super();
+    }
+
+    someFunction() {
+      super.someFunction();
+    }
+  }
+```
+
+???
+  super metoder
+
+---
+class: cols two
+
+#Oppgaver
+
+Få testene til å kjøre
+
+* http://tddbin.com/#?kata=es6/language/class/creation
+* http://tddbin.com/#?kata=es6/language/class/more-extends
+* http://tddbin.com/#?kata=es6/language/class/accessors
 
 ---
 class: middle center
@@ -958,19 +1490,6 @@ class: middle
     .then(noeFjerdeAsync)
     .catch(taIMotFeilen);
 ```
-
----
-
-# Promise
-
-  ## Ufullstendig liste over custom implentasjoner
-  * [jQuery deferred.promise](https://api.jquery.com/deferred.promise/)
-  * [then/promise](https://github.com/then/promise/blob/master/src/core.js)
-  * [kriskowal/q](https://github.com/kriskowal/q/blob/v1/design/README.js)
-  * [petkaantonov/bluebird](https://github.com/petkaantonov/bluebird)
-
-???
-  Alle implementerer samme konseptet, men har forskjellig funksjonalitet og api
 
 ---
 
@@ -1080,13 +1599,12 @@ exclude: true
 ---
 # Oppgaver
 
-http://tddbin.com/#?kata=es6/language/promise/basics
+Få testene til å kjøre
 
-http://tddbin.com/#?kata=es6/language/promise/creation
-
-http://tddbin.com/#?kata=es6/language/promise/chaining-then (hvis tid)
-
-http://tddbin.com/#?kata=es6/language/promise/api (hvis tid)
+* http://tddbin.com/#?kata=es6/language/promise/basics
+* http://tddbin.com/#?kata=es6/language/promise/creation
+* http://tddbin.com/#?kata=es6/language/promise/chaining-then (hvis tid)
+* http://tddbin.com/#?kata=es6/language/promise/api (hvis tid)
 
 
 
@@ -1224,13 +1742,18 @@ class: center middle
 
 .source[https://github.com/github/fetch]
 ---
+# Hva med litt mer?
 
-
+* http://es6katas.org
+* https://github.com/bekk/webutvikling101
+* https://github.com/bekk/funksjonell-frontend
 
 ---
-class: center middle bekk-top
-
+id:balle
+class: split center middle
 # Takk for i dag!
+
+<img src="resources/husky-katt.jpg" />
 
     </textarea>
     <script src="https://cdn.rawgit.com/bekk/remark/master/vendor/remark.min.js" type="text/javascript"></script>
