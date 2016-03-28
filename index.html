@@ -1239,7 +1239,6 @@ Som vi vet:
 ---
 
 
-
 # Prototype Chain
 
 ```
@@ -1269,7 +1268,50 @@ Som vi vet:
   pat.katt; // "Missy"
   nilsArne.katt // undefined
 ```
+---
 
+# Prototype
+
+```
+  var User = function() {
+    this.initialize.apply(this, arguments);
+  };
+```
+--
+
+```
+  Object.assign(User.prototype, {
+    initialize() {
+
+    },
+
+    doSomething() {
+
+    }
+  });
+```
+---
+
+# Prototype
+
+```
+  var User = function() {
+    this.initialize.apply(this, arguments);
+  };
+```
+
+
+```
+  Object.assign(User.prototype, {
+    initialize() {
+
+    },
+
+    doSomething() {
+
+    }
+  }, someMixin, someOtherMixin);
+```
 ---
 
 #Oppgaver
@@ -1279,7 +1321,6 @@ Få testene til å kjøre
 * http://jsbin.com/kuzavu/5/edit?js,console
 
 ---
-
 class: middle center
 
 # Class
@@ -1375,6 +1416,35 @@ Ikke ordentlig klasser, bare syntax-sukker oppå prototype
 
 ---
 
+```
+  // Shared empty constructor function to aid in prototype-chain creation.
+  var ctor = function() {};
+
+  // Set up inheritance for the model and view.
+  View.extend = Model.extend = function(properties) {
+      var parent = this;
+
+      // Create child constructor
+      // … which only job is to call the parent construtor with all the arguments
+      var child = function() { parent.apply(this, arguments); };
+
+      // Set the prototype chain to inherit from `parent`
+      ctor.prototype = parent.prototype;
+      child.prototype = new ctor();
+
+      // Add prototype properties, i.e. instance properties
+      $.extend(child.prototype, properties);
+
+      // The child must also be able to create new subclasses
+      child.extend = parent.extend;
+
+      return child;
+  };
+```
+
+.source[https://github.com/kjbekkelund/simple/blob/master/simple.js#L417]
+
+---
 # Class
 
 ```
