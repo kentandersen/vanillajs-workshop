@@ -1720,6 +1720,38 @@ class: center middle
     throw error;
   });
 ```
+--
+The Promise returned from fetch() won't reject on HTTP error status even if the response is a HTTP 404 or 500. Instead, it will resolve normally, and it will only reject on network failure, or if anything prevented the request from completing.
+
+.source[https://github.com/github/fetch]
+
+---
+# fetch
+
+```javascript
+  function checkStatus(response) {
+    if (response.status >= 200 && response.status < 300) {
+      return response;
+    } else {
+      var error = new Error(response.statusText);
+      error.response = response;
+      throw error;
+    }
+  }
+```
+
+.source[https://github.com/github/fetch]
+
+--
+
+```javascript
+  fetch('http://localhost:5000/sok?tag=bekk')
+    .then(checkStatus)
+    .then(response => response.json())
+    .then(data => console.log(data));
+    .catch(error => throw error);
+```
+
 ---
 # fetch
 
