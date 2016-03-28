@@ -1,1 +1,1 @@
-slides ligger på https://kentandersen.github.io/vanillajs-workshop/
+slides ligger på http://kentandersen.github.io/vanillajs-workshop/
