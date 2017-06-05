@@ -19,37 +19,13 @@ class: agenda
 
 # Plan for dagen
 
-* Show and tell med Øyvind x2
-* JavaScript
+* Variabler
+* Strings
+* Functions
+* Scope
 * DOM-api
 * Prototypes
 * Promises
-* Lunsj
-
----
-class: middle center
-.card[
-  .picture[
-    ![](https://intern.bekk.no/Employees/ViewEmployeeImage.ashx?thumbnail=true&thumbsize=500&employee=457)
-  ]
-  .name[Øyvind Skaar]
-  .title[Systemutvikler]
-  .department[Technology]
-  .phone[909 43 920]
-  .email[oyvind.skaar@bekk.no]
-]
-
-
-.card[
-  .picture[
-    ![](https://intern.bekk.no/Employees/ViewEmployeeImage.ashx?thumbnail=true&thumbsize=500&employee=561)
-  ]
-  .name[Øyvind Midtbø]
-  .title[Systemutvikler]
-  .department[Technology]
-  .phone[995 15 434]
-  .email[oyvind.midtbo@bekk.no]
-]
 
 ---
 class: middle center
@@ -105,7 +81,7 @@ class: middle center
     var n;
   }
 
-  n; // ReferenceError: n is not defined
+  n; // undefined
 ```
 ---
 # Var
@@ -245,7 +221,7 @@ class: middle center
 
 ```
   const x = 'I am a const';
-  x = 'Cant change you?'; // SyntaxError: 'constString' is read-only
+  x = 'Cant change you?'; // TypeError: Assignment to constant variable.
 ```
 
 ???
@@ -456,7 +432,7 @@ Legg merke til at det ikke blir ref error
 ```
   function times(timesNum) {
     return function(num) {
-      num * timesNum;
+      return num * timesNum;
     }
   }
 ```
